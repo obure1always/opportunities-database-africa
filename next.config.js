@@ -13,6 +13,14 @@ const nextConfig = {
       }
     ],
   },
+  transpilePackages: ['@trpc/server', '@trpc/client', '@trpc/react-query', '@tanstack/react-query'],
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  swcMinify: true,
 }
 
 module.exports = nextConfig 

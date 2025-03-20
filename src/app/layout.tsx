@@ -5,12 +5,13 @@ import Link from 'next/link'
 import { Search, Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import { TRPCProvider } from '@/lib/trpc/provider'
+import { headers } from 'next/headers'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Opportunities Database Africa',
-  description: 'Find scholarships, internships, exchange programs, and research grants across Africa',
+  description: 'Find and post opportunities across Africa',
 }
 
 export default function RootLayout({

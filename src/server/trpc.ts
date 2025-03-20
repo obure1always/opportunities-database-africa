@@ -4,8 +4,19 @@ import { ZodError } from 'zod'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/db'
+import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 
-const t = initTRPC.create({
+export async function createContext(opts: CreateNextContextOptions) {
+  const session = await getServerSession(authOptions)
+  return {
+    session,
+    prisma,
+  }
+}
+
+export type Context = Awaited<ReturnType<typeof createContext>>
+
+const t = initTRPC.context<Context>().create({
   transformer: superjson,
   errorFormatter({ shape, error }) {
     return {
@@ -19,28 +30,17 @@ const t = initTRPC.create({
   },
 })
 
-const isAuthed = t.middleware(async ({ next }) => {
-  const session = await getServerSession(authOptions)
-
-  if (!session?.user) {
+const isAuthed = t.middleware(async ({ ctx, next }) => {
+  if (!ctx.session?.user) {
     throw new TRPCError({ code: 'UNAUTHORIZED' })
   }
 
   return next({
     ctx: {
-      session: session,
+      session: ctx.session,
     },
   })
 })
-
-export const createTRPCContext = async (opts: { headers: Headers }) => {
-  const session = await getServerSession(authOptions)
-
-  return {
-    prisma,
-    session,
-  }
-}
 
 export const router = t.router
 export const publicProcedure = t.procedure
