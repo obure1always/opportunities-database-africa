@@ -22,12 +22,17 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+    
+    - name: Clean npm cache and node_modules
+      run: |
+        npm cache clean --force
+        rm -rf node_modules
+        rm -rf .next
     
     - name: Install dependencies
       run: |
         npm install -g npm@latest
-        npm ci
+        npm install
       
     - name: Check package versions
       run: |
@@ -45,6 +50,7 @@ jobs:
       run: npm run build
       env:
         CI: true
+        NODE_OPTIONS: "--max_old_space_size=4096"
     
     - name: Cache Next.js build
       uses: actions/cache@v3
