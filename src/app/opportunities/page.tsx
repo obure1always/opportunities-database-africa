@@ -1,25 +1,23 @@
 'use client'
 
-import { useState } from 'react'
-import type { FC } from 'react'
+import React from 'react'
 
-const OpportunitiesPage: FC = () => {
-  // Form state
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [organization, setOrganization] = useState('')
-  const [location, setLocation] = useState('')
-  const [deadline, setDeadline] = useState('')
-  const [benefits, setBenefits] = useState('')
-  const [eligibility, setEligibility] = useState('')
+export default function OpportunitiesPage() {
+  const [title, setTitle] = React.useState('')
+  const [description, setDescription] = React.useState('')
+  const [organization, setOrganization] = React.useState('')
+  const [location, setLocation] = React.useState('')
+  const [deadline, setDeadline] = React.useState('')
+  const [benefits, setBenefits] = React.useState('')
+  const [eligibility, setEligibility] = React.useState('')
 
   // Search and filter state
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedLocation, setSelectedLocation] = useState('')
-  const [selectedDegreeLevel, setSelectedDegreeLevel] = useState('')
+  const [searchTerm, setSearchTerm] = React.useState('')
+  const [selectedLocation, setSelectedLocation] = React.useState('')
+  const [selectedDegreeLevel, setSelectedDegreeLevel] = React.useState('')
 
   // Sample scholarships data
-  const [scholarships, setScholarships] = useState([
+  const [scholarships, setScholarships] = React.useState([
     {
       id: 1,
       title: "DAAD Scholarship for African Students",
@@ -362,6 +360,4 @@ const OpportunitiesPage: FC = () => {
       </div>
     </div>
   )
-}
-
-export default OpportunitiesPage 
+} 
