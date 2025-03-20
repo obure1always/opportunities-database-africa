@@ -4,13 +4,17 @@ import { ZodError } from 'zod'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/db'
-import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 
-export async function createContext(opts: CreateNextContextOptions) {
+export type CreateContextOptions = {
+  headers: Headers
+}
+
+export async function createContext(opts: CreateContextOptions) {
   const session = await getServerSession(authOptions)
   return {
     session,
     prisma,
+    ...opts,
   }
 }
 

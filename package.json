@@ -2,6 +2,9 @@
   "name": "opportunities-database-africa",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -22,10 +25,10 @@
     "@radix-ui/react-slot": "1.0.2",
     "@radix-ui/react-tabs": "1.0.4",
     "@tanstack/react-query": "^4.36.1",
-    "@trpc/client": "^10.43.6",
-    "@trpc/next": "^10.43.6",
-    "@trpc/react-query": "^10.43.6",
-    "@trpc/server": "^10.43.6",
+    "@trpc/client": "^10.45.2",
+    "@trpc/next": "^10.45.2",
+    "@trpc/react-query": "^10.45.2",
+    "@trpc/server": "^10.45.2",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.0",
     "lucide-react": "0.358.0",
@@ -44,11 +47,21 @@
     "@types/react": "18.2.61",
     "@types/react-dom": "18.2.19",
     "autoprefixer": "10.4.17",
-    "eslint": "8.57.0",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.1.0",
     "postcss": "8.4.35",
     "prisma": "^5.0.0",
+    "rimraf": "^5.0.5",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
+  },
+  "overrides": {
+    "glob": "^9.3.5",
+    "rimraf": "^5.0.5",
+    "eslint": "^8.57.0",
+    "@trpc/client": "^10.45.2",
+    "@trpc/next": "^10.45.2",
+    "@trpc/react-query": "^10.45.2",
+    "@trpc/server": "^10.45.2"
   }
 }
