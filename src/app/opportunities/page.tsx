@@ -68,8 +68,8 @@ export default function OpportunitiesPage() {
       }
     ],
     internships: [
-      {
-        id: 1,
+    {
+      id: 1,
         title: "Software Engineering Internship",
         organization: "Microsoft Africa",
         location: "Nigeria",
@@ -78,9 +78,9 @@ export default function OpportunitiesPage() {
         benefits: "Competitive salary, Mentorship, Housing allowance, Transportation",
         eligibility: "Computer Science students, Strong coding skills, Problem-solving ability",
         description: "12-week internship program for aspiring software engineers."
-      },
-      {
-        id: 2,
+    },
+    {
+      id: 2,
         title: "Business Development Intern",
         organization: "African Development Bank",
         location: "Côte d'Ivoire",
@@ -89,9 +89,9 @@ export default function OpportunitiesPage() {
         benefits: "Monthly stipend, Professional development, Networking opportunities",
         eligibility: "Business/Economics students, Fluent in English/French",
         description: "6-month internship focused on development finance and business strategy."
-      },
-      {
-        id: 3,
+    },
+    {
+      id: 3,
         title: "Research Intern - Climate Change",
         organization: "UN Environment Programme",
         location: "Kenya",
@@ -100,9 +100,9 @@ export default function OpportunitiesPage() {
         benefits: "Monthly allowance, Training opportunities, International exposure",
         eligibility: "Environmental Science background, Research skills",
         description: "Support climate change research and policy development initiatives."
-      },
-      {
-        id: 4,
+    },
+    {
+      id: 4,
         title: "Data Science Intern",
         organization: "IBM Research Africa",
         location: "Kenya",
@@ -111,9 +111,9 @@ export default function OpportunitiesPage() {
         benefits: "Competitive pay, Mentorship, Project ownership, Networking",
         eligibility: "Statistics/Computer Science background, Python/R proficiency",
         description: "Work on cutting-edge AI and data science projects in Africa."
-      },
-      {
-        id: 5,
+    },
+    {
+      id: 5,
         title: "Marketing & Communications Intern",
         organization: "Safaricom",
         location: "Kenya",
@@ -323,16 +323,16 @@ export default function OpportunitiesPage() {
                 <option key={location} value={location}>{location}</option>
               ))}
             </select>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="">All Categories</option>
               {categories.map(category => (
                 <option key={category} value={category}>{category}</option>
-              ))}
-            </select>
+                ))}
+              </select>
           </div>
         </div>
 
