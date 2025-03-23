@@ -1,9 +1,10 @@
 {
-  "name": "opportunities-database-africa",
+  "name": "opportunities-africa-frontend",
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.17.0",
+    "npm": ">=9.6.7"
   },
   "scripts": {
     "dev": "next dev",

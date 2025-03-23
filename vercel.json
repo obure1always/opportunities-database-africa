@@ -7,5 +7,14 @@
   "outputDirectory": ".next",
   "env": {
     "NEXT_PUBLIC_API_URL": "https://opportunities-database-africa-api.vercel.app/api"
-  }
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "nodeVersion": "18.17.0"
+      }
+    }
+  ]
 } 
