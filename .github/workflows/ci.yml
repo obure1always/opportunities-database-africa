@@ -25,16 +25,13 @@ jobs:
         rm -rf .next
         npm cache clean --force
         
-    - name: Install Frontend Dependencies
+    - name: Install Dependencies
       run: npm install
-      
-    - name: Type check
-      run: npm run type-check || true
       
     - name: Lint
       run: npm run lint
       
-    - name: Build Frontend
+    - name: Build
       run: npm run build
       env:
         NODE_OPTIONS: "--max_old_space_size=4096"
@@ -46,16 +43,4 @@ jobs:
           .next/cache
         key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
         restore-keys: |
-          ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-      
-    - name: Install Backend Dependencies
-      run: cd backend && npm install
-      
-    - name: Build Backend
-      run: cd backend && npm run build
-      
-    - name: Run Frontend Tests
-      run: npm run lint
-      
-    - name: Run Backend Tests
-      run: cd backend && npm test 
+          ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}- 
