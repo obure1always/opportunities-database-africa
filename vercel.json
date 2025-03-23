@@ -12,7 +12,12 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/next",
+      "config": {
+        "nodeVersion": "18.17.0",
+        "buildCommand": "npm run build",
+        "installCommand": "npm install"
+      }
     }
   ]
 } 
