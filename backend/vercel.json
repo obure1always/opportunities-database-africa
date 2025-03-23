@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/index.ts"
+    }
+  ],
+  "env": {
+    "SUPABASE_URL": "https://tmsnikcdldpywqvwbhfj.supabase.co",
+    "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtc25pa2NkbGRweXdxdndiaGZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI2NjgwMzIsImV4cCI6MjA1ODI0NDAzMn0.a-ayhy0pTC4dKHZkPOFNURJha5XvXTlX2dT_d9tOKUw",
+    "JWT_SECRET": "opportunities-africa-secret-key-2024",
+    "JWT_EXPIRES_IN": "24h",
+    "NODE_ENV": "production"
+  }
+} 

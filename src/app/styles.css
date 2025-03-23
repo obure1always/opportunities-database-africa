@@ -1,0 +1,34 @@
+/* Custom CSS styles */
+.hero {
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+  transition: transform 0.3s ease;
+}
+
+.hero:hover {
+  transform: translateY(-5px);
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px !important;
+  }
+  
+  .hero p {
+    font-size: 16px !important;
+  }
+  
+  button {
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+  }
+} 

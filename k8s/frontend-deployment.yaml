@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opportunities-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: opportunities-frontend
+  template:
+    metadata:
+      labels:
+        app: opportunities-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: your-registry/opportunities-frontend:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NEXT_PUBLIC_API_URL
+          value: "http://opportunities-backend:3001/api"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: opportunities-frontend
+spec:
+  selector:
+    app: opportunities-frontend
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: LoadBalancer 
